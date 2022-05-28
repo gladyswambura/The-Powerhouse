@@ -8,14 +8,13 @@ class Image(models.Model):
     image_date = models.DateTimeField(auto_now_add=True)
     image_category = models.ForeignKey('Category', on_delete=models.CASCADE)
     image_location = models.ForeignKey('Location', on_delete=models.CASCADE)
-    image_tags = models.ManyToManyField('Tag')
 
     def __str__(self):
         return self.image_name
 
     @classmethod
-    def search_by_category(cls,search_iterm):
-        search_result = cls.objects.filter(image_category__cat_name__icontains=search_iterm)
+    def search_by_category(cls,search_term):
+        search_result = cls.objects.filter(image_category__category_name__icontains=search_term)
         return search_result
 
     @classmethod
