@@ -1,16 +1,32 @@
-<div class="container">
-    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+<nav style="background-color: #d5bdaf;">
+  <br>
+  <h2 class="text-center powerhouse">THEE POWERHOUSE <br><i><small class="text-center">gallery</small></i></h2>
+<div class="container bar">
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-1 mb-2 border-bottom">
       <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-        <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
+        <svg class="bi me-2" width="35" height="25" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
       </a>
 
       <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-        <li><a href="#" class="nav-link px-2 link-secondary">Home</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">Category</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">About</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">Home</a></li>
+        <li><a href="/about" class="nav-link px-2 link-dark">About</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link link-dark dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown"
+            aria-expanded="false">Category</a>
+          <ul class="dropdown-menu" aria-labelledby="dropdown01">
+            <li><a class="dropdown-item" href="#">Ladies-Bodycon Dresses</a></li>
+            <li><a class="dropdown-item" href="#">Official-Ladies wear</a></li>
+            <li><a class="dropdown-item" href="#">Official-Men wear</a></li>
+            <li><a class="dropdown-item" href="#">Casual-Men wear</a></li>
+            <li><a class="dropdown-item" href="#">African Kitenge</a></li>
+          </ul>
+        </li>
+        <li><a href="/contacts" class="nav-link px-2 link-dark">Contacts</a></li>
       </ul>
-       <form class="col-12 col-lg-auto mb-3 mb-lg-0" role="search">
+       <form class="col-12 col-lg-auto mb-2 d-flex" role="search">
         <input type="search" class="form-control" placeholder="Search by category" aria-label="Search">
+        <button><i class="fa-solid fa-magnifying-glass" type="submit"></i></button>
       </form>
     </header>
   </div>
+</nav>
