@@ -24,8 +24,8 @@
           <a class="nav-link link-dark dropdown-toggle" href="#" id="navbarDropdown" data-bs-toggle="dropdown"
             aria-expanded="false">Location</a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            {% for cat in location %}
-            <a class="dropdown-item" href="/location/{{cat.location_name}}">{{cat.location_name}}</a>
+            {% for category in locations %}
+            <a class="dropdown-item" href="/location/{{category.location_name}}">{{category.location_name}}</a>
             <div class="dropdown-divider"></div>
             {% endfor %}
           </ul>
