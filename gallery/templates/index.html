@@ -5,7 +5,7 @@
 <div class="container mt-4">
     <div class="card-columns">
         <div class="card-body text-center">
-            {% for images in images %} 
+            {% for images in image %} 
             <img id="myImg" src="{{image.image_path.url}}" alt="" width="100%" data-bs-toggle="modal"
                 data-bs-target="#myModal" />   
                 <br><br>
@@ -15,7 +15,7 @@
 </div>
 
 <!-- Modal -->
-{% for images in images %}
+{% for image in image %}
 <div class="modal fade" id="myModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
