@@ -41,17 +41,19 @@ def search_location(request):
         return render(request, 'search.html',{"message":message})
     
 
-def get_category(request,category):
+def category(request, category):
     category_results = Category.objects.all()
     location_results = Location.objects.all()
-    category_result = Image.objects.filter(image_category__cat_name = category)
-    return render(request,'index.html',{'all_images':category_result,'category_results':category_results,'location_results':location_results})
+    category_result = Image.objects.filter(image_category__category_name = category)
+    message = f"{category}"
+    return render(request,'index.html',{"message":message,'all_images':category_result,'category_results':category_results,'location_results':location_results})
 
-def get_location(request,location):
+def location(request, location):
     category_results = Category.objects.all()
     location_results = Location.objects.all()
     location_result = Image.objects.filter(image_location__location_name= location)
-    return render(request,'index.html',{'all_images':location_result,'category_results':category_results,'location_results':location_results})
+    message = f"{location}"
+    return render(request,'index.html',{"message":message,'all_images':location_result,'category_results':category_results,'location_results':location_results})
 
 
 
