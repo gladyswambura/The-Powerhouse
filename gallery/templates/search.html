@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if categories %}
+{% for category in categories %}
+<div class=" container card" style="width: 50rem; flex-direction: row;">
+     {% if images%}
+     <a class="card-img" style=" width: 30%;" alt="..." href=""><img src=" {{image.image_path.url}}" alt=""></a>
+     <p class="card-text">{{ image.image_description }}</p>
+     {% else %}
+     <!-- <h2> No Search categories found for {{message}}</h2> -->
+     {% endif %}  
+    <div class="card-body">
+        <h5 class="card-title">{{category.category_name}}</h5>   
+        <a href="/" class="btn btn-primary btn-sm">Back</a>
+    </div>
+</div>
+   
+{% endfor %}
+{% endif %}
+</div>
+</div>
+{% endblock %}
