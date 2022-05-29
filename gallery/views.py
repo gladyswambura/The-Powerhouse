@@ -6,12 +6,12 @@ from .models import Image, Category, Location
 # Create your views here.
 def index(request):
     try:
-        image = Image.objects.all()
+        images = Image.objects.all()
         category = Category.objects.all()
         location = Location.objects.all()
     except Image.DoesNotExist:
         raise Http404() 
-    return render(request,'index.html', {'images':image,'location':location,'category':category})
+    return render(request,'index.html', {'images':images,'location':location,'category':category})
 
 def about(request):
     return render (request,'about.html')
@@ -41,12 +41,17 @@ def search_location(request):
         return render(request, 'search.html',{"message":message})
     
 
-def category(request):
-    return render(request, 'base.html')
+def get_category(request,category):
+    category_results = Category.objects.all()
+    location_results = Location.objects.all()
+    category_result = Image.objects.filter(image_category__cat_name = category)
+    return render(request,'index.html',{'all_images':category_result,'category_results':category_results,'location_results':location_results})
 
-def location(request):
-    return render(request, 'base.html')
-
+def get_location(request,location):
+    category_results = Category.objects.all()
+    location_results = Location.objects.all()
+    location_result = Image.objects.filter(image_location__location_name= location)
+    return render(request,'index.html',{'all_images':location_result,'category_results':category_results,'location_results':location_results})
 
 
 
