@@ -1,0 +1,75 @@
+{% extends 'base.html'%}
+{% load bootstrap4 %}
+{% block content %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<div class="container mt-4">
+    <div class="card-columns">
+        <div class="card-body text-center">
+            {% for image in images %} 
+            <img id="myImg" src="{{image.image_path.url}}" alt="" width="100%" data-bs-toggle="modal"
+                data-bs-target="#myModal" />   
+                <br><br>
+        {% endfor %}
+         </div>
+    </div>
+</div>
+
+<!-- Modal -->
+{% for image in images %}
+<div class="modal fade" id="myModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="colored-font">{{image.image_category}}</h6>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h5 class="modal-title text-center"style="text-decoration: underline;" id="staticBackdropLabel">{{image.image_name}}</h5>
+                 <p class="colored-font">{{ image.image_description }}</p>
+                 <p class="colored-font">{{image.image_location}}</p>
+                 <small class="text-muted"><i class="colored-font">{{image.image_date}}</i></small>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button><i class="fa fa-copy" style="color: #d6962c" onclick="CopyFunction()"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+<script>
+    function CopyFunction() {
+    var copyText = document.getElementById("imagelink");
+    copyText.select();
+    document.execCommand("copy");
+    alert("Copied: " + copyText.value);
+    }
+
+    // Get the modal
+    var modal = document.getElementById("myModal");
+    // Get the image and insert it inside the modal - use its "alt" text as a caption
+    var img = document.getElementById("myImg");
+    var modalImg = document.getElementById("img01");
+    var captionText = document.getElementById("caption");
+    img.onclick = function () {
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    captionText.innerHTML = this.alt;
+    }
+    // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on <span> (x), close the modal
+            span.onclick = function () {
+            modal.style.display = "none";
+            }
+
+    const myModal = document.getElementById('myModal')
+    const myInput = document.getElementById('myInput')
+
+    myModal.addEventListener('shown.bs.modal', () => {
+        myInput.focus()
+    })
+</script>
+{% endblock %}
