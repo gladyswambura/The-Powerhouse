@@ -1,0 +1,46 @@
+{% extends 'base.html'%}
+{% load bootstrap4 %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <div class="container">
+            <header class="pb-3 mb-4 ml-8 border-bottom powerhouse text-center">
+                <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+                    <span class="fs-1"> Thee Powerhouse gallery</span>
+                </a>
+            </header>
+            <div id="carousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="{% static 'images/about1.jpg' %}" class="d-block w-80 " alt="..." height="450">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'images/about2.jpg' %}" class="d-block w-80 " alt="..." height="450">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'images/about3.jpg' %}" class="d-block w-80 " alt="..." height="450">
+                    </div>
+                </div>
+            </div><br><br>
+            <div class="row align-items-md-stretch">
+                <div class="col-md-6">
+                    <div class="h-100 p-5 text-white bg-dark rounded-3">
+                        <h2 class="powerhouse  border-bottom text-center">Fashion Full</h2>
+                        <ul>
+                            <li>Consider Your Shape. </li>
+                            <li>Play To Your Strengths.</li>
+                            <li> Know Your Personal Style.</li>
+                            <li> Consider The Occasion.</li>
+                            <li> Know Your Comfort Level.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="h-100 p-5 bg-light border rounded-3" style="background-image: url()">
+                        <img src="{% static 'images/aboutimage.jpg' %}" alt="My image" width="350" height="">
+                        <button class="btn btn-outline-secondary" type="button"><a href="/">Own it!!</a></button>
+                    </div>
+                </div>
+            </div><br><br> 
+        </div>
+{% endblock %}
