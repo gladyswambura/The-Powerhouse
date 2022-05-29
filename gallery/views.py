@@ -53,7 +53,7 @@ def location(request, location):
     location_results = Location.objects.all()
     location_result = Image.objects.filter(image_location__location_name= location)
     message = f"{location}"
-    return render(request,'index.html',{"message":message,'all_images':location_result,'category_results':category_results,'location_results':location_results})
+    return render(request,'location.html',{"message":message,'all_images':location_result,'category_results':category_results,'location_results':location_results})
 
 
 

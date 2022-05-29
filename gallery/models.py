@@ -12,10 +12,6 @@ class Image(models.Model):
     def __str__(self):
         return self.image_name
 
-    @classmethod
-    def search_by_category(cls,search_term):
-        search_result = cls.objects.filter(image_category__category_name__icontains=search_term)
-        return search_result
 
     @classmethod
     def get_image_by_id(cls,new_id):
@@ -64,6 +60,11 @@ class Category(models.Model):
     def get_category_by_id(cls,category_id):
         category_result = Category.objects.get(id=category_id)
         return category_result
+
+    @classmethod
+    def search_by_category(cls,search_term):
+        search_result = cls.objects.filter(category_name__icontains=search_term)
+        return search_result
 
 class Location(models.Model):
     location_name = models.CharField(max_length=255)
