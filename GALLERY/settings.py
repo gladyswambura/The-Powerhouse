@@ -15,6 +15,9 @@ import django_heroku
 from pathlib import Path
 import dj_database_url
 from decouple import config,Csv
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 MODE=config("MODE", default="dev")
 SECRET_KEY = config('SECRET_KEY')
@@ -46,7 +49,12 @@ DATABASES['default'].update(db_from_env)
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+# adding config
+cloudinary.config( 
+  cloud_name = "dtvks4ond", 
+  api_key = "894428794478572", 
+  api_secret = "GaLMeLQ5D1QVf9OspIsonOXxirY" 
+)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
@@ -72,6 +80,7 @@ INSTALLED_APPS = [
     'gallery',
     'bootstrap4',
     'fontawesomefree',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
