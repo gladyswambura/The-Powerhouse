@@ -19,7 +19,7 @@ def about(request):
 def search_results(request):
     if 'category' in request.GET and request.GET["category"]:
         search_term = request.GET.get("category")
-        searched_category = Category.search_by_category(search_term)
+        searched_category = Image.search_by_category(search_term)
         message = f"{search_term}"
 
         return render(request, 'search.html',{"message":message,"categories":searched_category})

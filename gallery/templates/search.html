@@ -1,25 +1,21 @@
 {% extends 'base.html' %}
 {% block content %}
-
+<div class="container mt-4">
+    <div class="card-columns">
+        <div class="card-body text-center">
 {% for category in categories %}
-<div class=" container card" style="width: 50rem; flex-direction: row;">
-    {% if images%}
-    <h2 class="capitalize">{{ images|length }} {{message}} images found...</h2>
+ <h5 class="card-title">{{category.image_name}}, Taken in:{{category.image_location}}</h5>
+ <img class="img-responsive" src="{{category.image_path.url}}" width="500" height="500" alt="">
+ <a href="/" class="btn btn-primary btn-sm">Back</a> <br><br>
+    {% if image%}
+    <h4 class="text-center">Found {{ image|length }} images on {{message}}</h4>
     {% else %}
-    <!-- <h2> No {{message}} images found</h2> -->
+    <!-- <p>no image found</p> -->
     {% endif %}
-    
-    <div class="card-body">
-        <h5 class="card-title">{{category.category_name}}</h5>
-        <a href="/" class="btn btn-primary btn-sm">Back</a>
-        {% if images %}
-        {% for image in images %}
-        <img class="card-img-top" class="img-responsive" src="{{image.image_path.url}}" size="100px200">
-        <br><br>
-        {% endfor %}
-        {% endif %}
-    </div>
-</div>
+
 {% endfor %}
+</div>
+</div>
+</div>
 {% endblock %}
 <br><br><br><br>

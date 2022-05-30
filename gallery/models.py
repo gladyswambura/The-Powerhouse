@@ -43,6 +43,11 @@ class Image(models.Model):
         filtered_result = cls.objects.filter(image_location__location_name__icontains=location)
         return filtered_result
 
+    @classmethod
+    def search_by_category(cls,search_term):
+        search_result = cls.objects.filter(image_path__icontains=search_term)
+        return search_result
+
 
 class Category(models.Model):
     category_name = models.CharField(max_length=255)
