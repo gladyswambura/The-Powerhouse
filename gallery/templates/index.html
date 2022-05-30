@@ -7,7 +7,7 @@
         <div class="card-body text-center">
             {% for image in images %} 
             <img id="myImg" src="{{image.image_path.url}}" alt="" width="100%" data-bs-toggle="modal"
-                data-bs-target="#myModal" />   
+                data-bs-target="#myModal{{image.id}}"/>
                 <br><br>
         {% endfor %}
          </div>
@@ -16,7 +16,7 @@
 
 <!-- Modal -->
 {% for image in images %}
-<div class="modal fade" id="myModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+<div class="modal fade" id="myModal{{image.id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
