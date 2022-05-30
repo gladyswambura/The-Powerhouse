@@ -32,18 +32,25 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button><i class="fa fa-copy" style="color: #d6962c" onclick="CopyFunction()"></i></button>
+                <button type="button" name="button" ><i class="fa fa-copy" style="color: black;"
+                    value="https://gladysgallery.herokuapp.com{{image.image_path.url}}"
+                    onclick="copylink(this.value)"></i></button>
             </div>
         </div>
     </div>
 </div>
 {% endfor %}
 <script>
-    function CopyFunction() {
-    var copyText = document.getElementById("imagelink");
-    copyText.select();
-    document.execCommand("copy");
-    alert("Copied successfully: " + copyText.value);
+    function copylink(value) {
+    console.log('seen')
+    function handler(event){
+    event.clipboardData.setData('text/plain', value);
+    event.preventDefault();
+    document.removeEventListener('copy', handler, true);
+    }
+    document.addEventListener('copy', handler, true);
+    document.execCommand('copy');
+    alert('Copied to clipboard');
     }
 
     // Get the modal
