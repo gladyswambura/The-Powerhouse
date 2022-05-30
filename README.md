@@ -5,6 +5,8 @@
 
 ## DESCRIPTION 
 This is a personal gallery application that you displays a variety of  photos from different categories.
+![image](https://user-images.githubusercontent.com/97955649/170929172-62041d37-c5f1-4587-bb9c-bdbb5e34e2ae.png)
+
 
 ## Features
 As a user of the application you will be able to:
